@@ -16,6 +16,7 @@ public class DetailController implements FrontImp{
 			dao = new SimpleDao();
 			 Map<String, Object> map = dao.selectOne(Integer.parseInt(req.getParameter("idx")));
 			 req.setAttribute("bean", map);
+			 dao.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -32,10 +32,7 @@ public class FrontController extends HttpServlet{
 //		String url="/";
 		String url="";
 		String path=req.getRequestURI();
-		
-
-			try {
-				SimpleDao dao = new SimpleDao();
+	
 				FrontImp controller=null;
 				
 				if(path.equals("/day01/list.do")){
@@ -48,17 +45,7 @@ public class FrontController extends HttpServlet{
 					controller = new InsertController();
 				}
 				url=controller.execute(req);
-				dao.close();
-//				url+=".jsp";
-				
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-		
-	
+
 		//view
 		
 		req.getRequestDispatcher(url).forward(req, resp);

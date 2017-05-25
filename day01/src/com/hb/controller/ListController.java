@@ -16,6 +16,7 @@ public class ListController implements FrontImp{
 			dao = new SimpleDao();
 			List list = dao.selectAll();
 			req.setAttribute("alist", list);
+			dao.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
