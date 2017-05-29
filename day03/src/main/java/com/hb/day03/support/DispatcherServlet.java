@@ -17,6 +17,18 @@ public class DispatcherServlet extends HttpServlet{
 		super.init();
 		
 		HendlerMapping.setMap("/main.do", "com.hb.day03.controller.SelectAll");
+		
+		/*
+		list	list.do		get
+		detail	detail.do	get
+
+
+		insert	update.do	post
+		update	update.do	put
+		delete	update.do	delete
+		*/
+
+		
 	}
 	
 	
@@ -34,7 +46,7 @@ public class DispatcherServlet extends HttpServlet{
 			res.sendRedirect(path);
 			return;
 		}
-		String prifix="";
+		String prifix="/WEB-INF/page/";
 		String sufix=".jsp";
 		req.getRequestDispatcher(prifix+path+sufix).forward(req, res);
 		

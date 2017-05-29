@@ -14,7 +14,7 @@ public class SelectAll implements MyController{
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return "main";
+		return "list";
 		
 	}
 
