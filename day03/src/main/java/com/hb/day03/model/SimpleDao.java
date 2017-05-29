@@ -90,4 +90,19 @@ public class SimpleDao {
 		return bean;
 	}
 
+
+	public int updateOne(int sabun, String name, String nalja, int cnt) throws SQLException {
+		String sql ="uqdate simple02 set name=?,nalja=?,cnt=? where sabun=?";
+		int result=0;
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		pstmt.setString(2, nalja);
+		pstmt.setInt(3, cnt);
+		pstmt.setInt(4, sabun);
+		result=pstmt.executeUpdate();
+		close();
+		
+		return result;
+	}
+
 }
