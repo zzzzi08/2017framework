@@ -27,7 +27,7 @@ public class UpdateOne implements MyController{
 		int result=0;
 		
 		try {
-			dao.updateOne(sabun,name,nalja,cnt);
+			result=dao.updateOne(sabun,name,nalja,cnt);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
