@@ -8,5 +8,11 @@
 		<action name="index" class="com.hb.struts.action.IndexAction">
 			<result>/index.jsp</result>
 		</action>
+		<action name="list" class="com.hb.struts.action.ListAction">
+			<result name="success">/list.jsp</result>
+		</action>
+		<action name="add">
+			<result>/add.jsp</result>
+		</action>
 	</package>
 </struts>
