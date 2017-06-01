@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- SQL Map -->  
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  
      "http://ibatis.apache.org/dtd/sql-map-2.dtd">  
 
-<sqlMap>
-	<select id="selectAll" resultClass="com.hb.struts2.model.SimpleVo">
-		select * from simple03 order by sabun
-	</select>
-</sqlMap>
+     <sqlMap>
+        <select id="selectAll" resultClass="com.hb.struts2.model.SimpleVo">
+           select * from simple03 order by sabun
+        </select>
+     
+        <select id="selectOne" parameterClass="int" resultClass="com.hb.struts2.model.SimpleVo">
+           select * from simple03 where sabun=#value#
+        </select>
+        <update id="updateOne" parameterClass="com.hb.struts2.model.SimpleVo" >
+           update simple03 set name=#name#, pay=#pay# where sabun=#sabun#
+        </update>
+     </sqlMap>

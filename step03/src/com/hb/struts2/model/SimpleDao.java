@@ -30,4 +30,12 @@ public class SimpleDao {
 		
 	}
 
+	public SimpleVo selectOne(int sabun) throws SQLException {
+		return (SimpleVo) smc.queryForObject("selectOne",sabun);
+	}
+
+	public int updateOne(SimpleVo bean) throws SQLException {
+		return smc.update("updateOne",bean);
+	}
+
 }
