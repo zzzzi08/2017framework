@@ -14,4 +14,10 @@
         <update id="updateOne" parameterClass="com.hb.struts2.model.SimpleVo" >
            update simple03 set name=#name#, pay=#pay# where sabun=#sabun#
         </update>
+        <insert id="insertOne" parameterClass="com.hb.struts2.model.SimpleVo">
+        	insert into simple03 values (#sabun#,#name#,sysdate,#pay#)
+        </insert>
+        <delete id="deleteOne" parameterClass="int">
+        	delete from simple03 where sabun=#value#
+        </delete>
      </sqlMap>

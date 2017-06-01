@@ -26,7 +26,7 @@
          <p>...</p>
          <p>
             <a class="btn btn-primary btn-lg" href="edit.action?sabun=${bean.sabun }" role="button">수정</a>
-            <a class="btn btn-primary btn-lg" href="del.action" role="button">삭제</a>
+            <a class="btn btn-primary btn-lg" href="del.action?sabun=${bean.sabun }" role="button">삭제</a>
          </p>
       </div>
    </div>

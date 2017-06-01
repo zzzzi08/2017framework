@@ -38,4 +38,14 @@ public class SimpleDao {
 		return smc.update("updateOne",bean);
 	}
 
+	public void insertOne(SimpleVo bean) throws SQLException {
+		smc.insert("insertOne",bean);
+		
+	}
+
+	public int deleteOne(int sabun) throws SQLException {
+		
+		return smc.delete("deleteOne",sabun);
+	}
+
 }
