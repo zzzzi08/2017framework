@@ -1,5 +1,6 @@
 package com.hb.struts2.action;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.hb.struts2.model.SimpleDao;
@@ -21,7 +22,11 @@ public class SimpleAction{
 	
 	public String list(){
 		SimpleDao dao = new SimpleDao();
-		list = dao.selectAll();
+		try {
+			list = dao.selectAll();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return "success";
 	}
 	
