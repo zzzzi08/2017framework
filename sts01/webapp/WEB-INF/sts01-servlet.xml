@@ -12,6 +12,7 @@
 	<bean name="/list.do" class="com.hb.day01.controller.ListController"></bean>
 	<bean name="/add.do" class="com.hb.day01.controller.AddController"></bean>
 	<bean name="/insert.do" class="com.hb.day01.controller.InsertController"></bean>
+	<bean name="/detail.do" class="com.hb.day01.controller.DetailController"></bean>
 	
 	
 	
