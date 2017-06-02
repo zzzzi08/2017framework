@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel = "stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+	.alert{
+			display: ${param.display ?"block" :"none"};
+		}
+</style>
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -18,6 +23,7 @@
   
 </head>
 <body>
+<div class="alert alert-success" role="alert">${param.msg }</div>
 	<div class="container">
 		<div class="row header">
 			<div class="col-md-12">

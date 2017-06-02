@@ -76,4 +76,29 @@ public class SimpleDao {
 		return bean;
 	}
 
+	public int updateOne(SimpleVo bean) throws SQLException {
+		String sql = "update simple03 set name=?, pay=? where sabun=?";
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getName());
+			pstmt.setInt(2, bean.getPay());
+			pstmt.setInt(3, bean.getSabun());
+			return pstmt.executeUpdate();
+		}finally{
+			closeAll();
+		}
+	}
+
+	public int deleteOne(int parseInt) throws SQLException {
+		String sql = "delete from simple03 where sabun=?";
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, parseInt);
+			return pstmt.executeUpdate();
+		}finally{
+			closeAll();
+		}
+	}
+
+	
 }
