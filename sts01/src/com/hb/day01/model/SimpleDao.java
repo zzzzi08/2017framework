@@ -46,4 +46,17 @@ public class SimpleDao {
 		
 	}
 
+	public int insertOne(SimpleVo bean) throws SQLException {
+		String sql = "insert into simple03 values (?,?,sysdate,?)";
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bean.getSabun());
+			pstmt.setString(2, bean.getName());
+			pstmt.setInt(3, bean.getPay());
+			return pstmt.executeUpdate();
+		}finally{
+			closeAll();
+		}
+	}
+
 }

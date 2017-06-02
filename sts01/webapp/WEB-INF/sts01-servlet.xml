@@ -7,9 +7,11 @@
 	<!-- 1. HandlerMapping 클래스 결정-->
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
 
-	<!-- 2. controller클래스를 설정-->
+	<!-- 2. controller클래스를 설정(mapping)-->
 	<bean name="/index.do" class="com.hb.day01.controller.IndexController"></bean>
 	<bean name="/list.do" class="com.hb.day01.controller.ListController"></bean>
+	<bean name="/add.do" class="com.hb.day01.controller.AddController"></bean>
+	<bean name="/insert.do" class="com.hb.day01.controller.InsertController"></bean>
 	
 	
 	
