@@ -11,7 +11,12 @@ public class IndexController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		System.out.println("indexController ½ÇÇà");
-		return null;
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("main");
+		
+		return mav;
 	}
 
 }
