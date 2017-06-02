@@ -9,6 +9,7 @@
 
 	<!-- 2. controller클래스를 설정-->
 	<bean name="/index.do" class="com.hb.day01.controller.IndexController"></bean>
+	<bean name="/list.do" class="com.hb.day01.controller.ListController"></bean>
 	
 	
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,30 @@
 			<div class="jumbotron">
  				 <h1>환영합니다</h1>
  				 <p>한빛교육센터 홈페이지입니다</p>
-    			<a class="btn btn-primary btn-lg" href="list.do" role="button">입장</a>
+    			<a class="btn btn-primary btn-lg" href="add.do" role="button">글쓰기</a>
 			</div>
+			
+			<div class="page-header">
+				<h1>게시판 <span>글을 작성합니다</span></h1>
+			</div>
+			<table class="table table-striped">
+				<tr>
+					<th>사번</th>
+					<th>이름</th>
+					<th>날짜</th>
+					<th>금액</th>
+				</tr>
+				<c:forEach items="${alist }" var="bean">
+				<tr>
+					<td>${bean.sabun }</td>
+					<td>${bean.name }</td>
+					<td>${bean.nalja }</td>
+					<td>${bean.pay }</td>
+				</tr>
+				</c:forEach>
+			</table>
+			
+			
 		</div>	
 		<div class="row footer">
 			<div class="col-md-12">
