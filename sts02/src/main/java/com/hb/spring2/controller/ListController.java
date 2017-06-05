@@ -9,14 +9,18 @@ import org.springframework.web.servlet.mvc.Controller;
 import com.hb.spring2.model.SimpleDao;
 
 public class ListController implements Controller {
-
+	private SimpleDao dao;	//객체생성한 dao는 null이므로 sts02-servlet.xml 에서 주입받아야함 주입받으려면 setter(setdao)필요
+	
+	public void setDao(SimpleDao dao) {
+		this.dao = dao;
+	}
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
-		SimpleDao dao = new SimpleDao();
+//		SimpleDao dao = new SimpleDao();
 		mav.addObject("alist", dao.selectAll());
-
 		mav.setViewName("list");
 		
 		return mav;

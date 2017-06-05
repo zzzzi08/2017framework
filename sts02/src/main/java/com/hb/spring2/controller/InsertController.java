@@ -10,13 +10,18 @@ import com.hb.spring2.model.SimpleDao;
 import com.hb.spring2.model.SimpleVo;
 
 public class InsertController extends AbstractController{
+	private SimpleDao dao;
+	
+	public void setDao(SimpleDao dao) {
+		this.dao = dao;
+	}
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 	
 		ModelAndView mav = new ModelAndView();
 		
-		SimpleDao dao = new SimpleDao();
+//		SimpleDao dao = new SimpleDao();
 		dao.insertOne(new SimpleVo(
 					Integer.parseInt(req.getParameter("sabun")),
 					req.getParameter("name"), null,

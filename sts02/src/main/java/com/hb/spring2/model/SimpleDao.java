@@ -8,24 +8,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hb.spring2.util.MyOracle;
+
 public class SimpleDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
 	public SimpleDao() {
-		try{
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
-		}catch (Exception e){
-			
-		}
+//		try{
+//			Class.forName("oracle.jdbc.OracleDriver");
+//			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
+//		}catch (Exception e){
+//			
+//		}
 	}
 
 	public List<SimpleVo> selectAll() throws SQLException{
 		String sql = "select * from simple03 order by sabun";
 		List<SimpleVo> list = null;
 		try{
+			conn=MyOracle.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			list = new ArrayList<>();
@@ -48,6 +51,7 @@ public class SimpleDao {
 	public void insertOne(SimpleVo simpleVo) throws SQLException {
 		String sql = "insert into simple03 values (?,?,sysdate,?)";
 		try{
+			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, simpleVo.getSabun());
 			pstmt.setString(2, simpleVo.getName());
