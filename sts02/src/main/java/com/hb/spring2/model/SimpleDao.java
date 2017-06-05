@@ -80,5 +80,11 @@ public class SimpleDao implements DaoImpl{
 		}
 		return bean;
 	}
+
+	@Override
+	public int updateOne(SimpleVo bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

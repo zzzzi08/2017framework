@@ -5,8 +5,9 @@ import java.util.List;
 
 public interface DaoImpl {
 
-	   List<SimpleVo> selectAll() throws SQLException;
-	   void insertOne(SimpleVo vo) throws SQLException;
-	   SimpleVo selectOne(int parseInt) throws SQLException;
+	List<SimpleVo> selectAll() throws SQLException;
+	void insertOne(SimpleVo vo) throws SQLException;
+	SimpleVo selectOne(int parseInt) throws SQLException;
+	int updateOne(SimpleVo bean) throws SQLException;
 	   
 	}
