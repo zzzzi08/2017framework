@@ -1,53 +1,53 @@
 package com.hb.spring2.model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import com.hb.spring2.util.MyOracle;
 
-public class SimpleDao implements DaoImpl{
-	private Connection conn;
-	private PreparedStatement pstmt;
+public class SimpleDao2 implements DaoImpl{
 	private ResultSet rs;
-
-	public SimpleDao() {
-//		try{
-//			Class.forName("oracle.jdbc.OracleDriver");
-//			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
-//		}catch (Exception e){
-//			
-//		}
+	private PreparedStatement pstmt;
+	private Connection conn;
+	private DataSource ds;
+	
+	public SimpleDao2() {
+		try {
+			InitialContext context = new InitialContext();
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+//			conn=ds.getConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public List<SimpleVo> selectAll() throws SQLException{
+	@Override
+	public List<SimpleVo> selectAll() throws SQLException {
 		String sql = "select * from simple03 order by sabun";
 		List<SimpleVo> list = null;
 		try{
-			conn=MyOracle.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			list = new ArrayList<>();
+			conn=ds.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			list = new ArrayList<>();	//DB 접속 정상적으로 이루어졌을때 list객체 생성해서 add
 			while(rs.next()){
-				list.add(new SimpleVo(rs.getInt("sabun"),rs.getString("name"),rs.getDate("nalja"),rs.getInt("pay")));
+				list.add(new SimpleVo(rs.getInt("sabun"), rs.getString("name"), rs.getDate("nalja"), rs.getInt("pay")));
 			}
-		}finally{
+		}finally {
 			closeAll();
 		}
-
 		return list;
 	}
-
-	private void closeAll() throws SQLException {
-		if(rs!=null)rs.close();
-		if(pstmt!=null)pstmt.close();
-		if(conn!=null)conn.close();
-	}
-
+	
+	@Override
 	public void insertOne(SimpleVo simpleVo) throws SQLException {
 		String sql = "insert into simple03 values (?,?,sysdate,?)";
 		try{
@@ -60,11 +60,10 @@ public class SimpleDao implements DaoImpl{
 		}finally{
 			closeAll();
 		}
-		
 	}
-	
+
 	@Override
-	public SimpleVo selectOne(int sabun) throws SQLException{
+	public SimpleVo selectOne(int sabun) throws SQLException {
 		String sql = "select * from simple03 where sabun=?";
 		SimpleVo bean = null;
 		try{
@@ -81,4 +80,10 @@ public class SimpleDao implements DaoImpl{
 		return bean;
 	}
 	
+	private void closeAll() throws SQLException {
+		if(rs!=null)rs.close();
+		if(pstmt!=null)pstmt.close();
+		if(conn!=null)conn.close();
+	}
+
 }
