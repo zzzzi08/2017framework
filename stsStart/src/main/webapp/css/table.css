@@ -1,0 +1,10 @@
+table{
+	width: 80%;
+	margin: 0px auto;
+}
+table tr{
+	border-bottom : solid red 1px;
+}
+table tr th{
+	background-color: green;
+}

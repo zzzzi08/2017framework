@@ -73,7 +73,7 @@ public class SimpleDao {
 		}finally{
 			closeAll();
 		}
-		return null;
+		return bean;
 	}
 
 	public int updateOne(int sabun, String name, int pay) throws SQLException {

@@ -29,7 +29,8 @@
 			<a href="../edit/${bean.sabun }">수정</a>
 			<a href="../del/${bean.sabun }">삭제</a>
 		</div>
+	
+	
 	</div>
-
 </body>
 </html>
