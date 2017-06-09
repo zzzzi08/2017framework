@@ -12,10 +12,10 @@
 <body>
 	
 		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
-		<div class="row content">
-  			<div class="col-md-12">
-				<div class="panel panel-default">
+		<jsp:include page="/template/menu.jsp">
+			<jsp:param value="1" name="active"/>
+		</jsp:include>
+		
 				  <div class="panel-body">
 				   	
 				   	
