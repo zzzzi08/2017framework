@@ -10,25 +10,9 @@
 <script src="resources/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row header">
-  			<div class="col-md-12">
-	  			<div class="jumbotron">
-				  <h1>Hello, world!</h1>
-				  <p>...</p>
-				  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-				</div>
-  			</div>
-		</div>
-		<div class="row nav">
-  			<div class="col-md-12">
-  				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="#">Home</a></li>
-				  <li role="presentation"><a href="user/list">UserList</a></li>
-				  <li role="presentation"><a href="cntnt/list">PayList</a></li>
-				</ul>
-  			</div>
-		</div>
+	
+		<jsp:include page="/template/header.jsp"></jsp:include>
+		<jsp:include page="/template/menu.jsp"></jsp:include>
 		<div class="row content">
   			<div class="col-md-12">
 				<div class="panel panel-default">
@@ -76,18 +60,9 @@
 					    <span class="sr-only">Next</span>
 					  </a>
 					</div>
-				   	
-				   	
-				   	
-				  </div>
-				 <div class="panel-footer footer">
-				 	(주)한빛이엔아이 ｜ 사업자등록번호 : 220-85-43667 ｜ 통신판매신고 : 마포 제 0358호<br/>
-				 	Copyright (c) 2015 한빛교육센터 All rights reserved.
-				 </div>
-	  			</div>
-			</div>
-		</div>
-	</div>
 
+				  </div>
+				
+	<jsp:include page="/template/footer.jsp"></jsp:include>
 </body>
 </html>

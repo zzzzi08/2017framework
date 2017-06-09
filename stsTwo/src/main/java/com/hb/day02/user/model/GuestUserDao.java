@@ -9,5 +9,5 @@ public interface GuestUserDao<T> {
 	T selectOne(int idx) throws SQLException;
 	void insertOne(T bean) throws SQLException;
 	int updateOne(T bean) throws SQLException;
-	int delete(int idx) throws SQLException;
+	int deleteOne(int idx) throws SQLException;
 }
