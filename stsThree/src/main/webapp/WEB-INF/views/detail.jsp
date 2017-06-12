@@ -25,15 +25,29 @@
 	crossorigin="anonymous"></script>
 	
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#update").hide();
-		
-		$("#detail button").click(function() {
-			$("#update").show();
-			$("#detail").hide();
-			$(".page-header small").text("수정페이지");
-		});
+var param='"'+${bean.sabun}+'"';
+$(document).ready(function() {
+	$("#update").hide();
+	
+	$("#detail button").eq(0).click(function() {
+		$("#update").show();
+		$("#detail").hide();
+		$(".page-header small").text("수정페이지");
+	}).next().click(function() {
+		if(window.confirm(param+"님 삭제하시겠습니까?")){
+			$.ajax({
+				headers :{"X-HTTP-Method-Override":"DELETE" },
+				method: 'DELETE',
+			    contentType: 'application/json',
+				dataType: 'text',
+				success:function(){
+					window.location.replace("/day03/list");
+				}
+			});
+		}
 	});
+});
+
 </script>
 
 </head>
@@ -97,10 +111,13 @@
 				    	<dd>${bean.pay }</dd>
 				    </dl>
 				    <button>수정</button>
+				    <button>삭제</button>
 				  </div>
 				</div>
 		    	<div id="update">
 		    		<form class="form-horizontal" method="post">
+		    		<!-- web.xml에 HiddenHttpMethodFilter 클래스 필터 등록 -->
+		    		<input type="hidden" name="_method" value="put" />
 					  <div class="form-group">
 					    <label for="sabun" class="col-sm-2 control-label">사번</label>
 					    <div class="col-sm-10">
