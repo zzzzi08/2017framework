@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="selectAll" resultClass="com.hb.day04am.model.dto.GuestVo">
+		select * from guest_day03 order by sabun
+	</select>
+	<insert id="insertOne" parameterClass="com.hb.day04am.model.dto.GuestVo">
+		insert into guest_day03 values (#sabun#, #name#, to_char(sysdate,'yyyy/mm/dd'), #pay#)
+	</insert>
+
+</sqlMap>
