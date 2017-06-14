@@ -23,5 +23,9 @@
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sqlSessionFactoryBean"></beans:constructor-arg>
 	</beans:bean>
+	
+	<beans:bean id="serviceCommand" 
+		class="com.hb.day06am.service.ServiceImpl"/>
+	
 
 </beans:beans>
