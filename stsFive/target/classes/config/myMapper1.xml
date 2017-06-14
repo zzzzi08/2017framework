@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="guest">
+  <select id="selectAll" resultType="com.hb.day04pm.model.dto.GuestVo">
+    select * from guest_day03 order by sabun
+  </select>
+  <select id="selectOne" resultType="com.hb.day04pm.model.dto.GuestVo" parameterType="int">
+  	select * from guest_day03 where sabun=#{value}
+  </select>
+  <insert id="insertOne" parameterType="com.hb.day04pm.model.dto.GuestVo">
+  	insert into guest_day03 values (#{sabun},#{name},to_char(sysdate,'yyyy/mm/dd'),#{pay})
+  </insert>
+  <update id="updateOne" parameterType="com.hb.day04pm.model.dto.GuestVo">
+  	update guest_day03 set name=#{name}, pay=#{pay} where sabun=#{sabun}
+  </update>
+  <delete id="deleteOne" parameterType="int">
+  	delete from guest_day03 where sabun=#{value}
+  </delete>
+</mapper>
